@@ -2,14 +2,19 @@
  * Класс руководителя. Наследник класса сотрудника.
  */
 public class Director extends Employee{
+    public Director(Gender gender) {
+        super(gender);
+    }
+
     /**
      * Метод повышения зарплаты
-     * @param array массив сотрудников
+     * @param employees массив сотрудников
+     * @param percent процент, на который повышаем зарплату сотрудника
      */
-    static void salary_increase(Employee[] array){
-        for (Employee employee : array) {
+    public static void raiseSalaries(Employee[] employees, double percent) {
+        for (Employee employee : employees) {
             if (!(employee instanceof Director)) {
-                employee.upSalary(employee);
+                employee.raiseSalary(percent);
             }
         }
     }

@@ -1,20 +1,23 @@
-// 1. Написать прототип компаратора - метод внутри класса сотрудника, сравнивающий две даты,
-//    представленные в виде трёх чисел гггг-мм-дд, без использования условного оператора.
+import java.time.LocalDate;
+import java.util.Arrays;
+import java.util.List;
 
-// 2. Опишите класс руководителя, наследник от сотрудника. Перенесите статический метод повышения зарплаты в класс руководителя,
-//    модифицируйте метод таким образом, чтобы он мог поднять заработную плату всем, кроме руководителей.
-//    В основной программе создайте руководителя и поместите его в общий массив сотрудников.
-//    Повысьте зарплату всем сотрудникам и проследите, чтобы зарплата руководителя не повысилась
+
 public class Main {
     public static void main(String[] args) {
-        Employee employee1 = new Employee();
-        Employee employee2 = new Employee();
-        Director director = new Director();
-        Employee[] employees = {employee1,director,employee2};
-        Director.salary_increase(employees);
+        Employee employee1 = new Employee(Gender.MALE);
+        Employee employee2 = new Employee(Gender.FEMALE);
+        Employee employee3 = new Employee(Gender.FEMALE);
+        Employee employee4 = new Employee(Gender.MALE);
+        Employee employee5 = new Employee(Gender.FEMALE);
 
-        System.out.println(employee1.getSalary());
-        System.out.println(employee2.getSalary());
-        System.out.println(director.getSalary());
+        Director director1 = new Director(Gender.MALE);
+        Director director2 = new Director(Gender.FEMALE);
+
+        Employee[] employees = {employee1,employee2,employee3,employee4,employee5, director1, director2};
+
+        Congratulation congratulation = new Congratulation();
+        System.out.println(congratulation.congratulate(employees));
     }
+
 }
